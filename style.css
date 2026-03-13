@@ -137,26 +137,60 @@ nav {
 }
 
 .filter-btn {
-    background: var(--glass-bg);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--text-dim);
-    padding: 12px 20px;
-    border-radius: 8px;
+    background: rgba(0, 210, 255, 0.05);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    color: var(--accent-color);
+    padding: 12px 24px;
+    border-radius: 2px;
     cursor: pointer;
     transition: var(--transition-fast);
     font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    margin: 4px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
 }
 
-.filter-btn:hover, .filter-btn.active {
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.filter-btn:hover::before {
+    left: 100%;
+}
+
+.filter-btn.active {
     background: var(--accent-color);
     color: var(--bg-color);
     border-color: var(--accent-color);
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+}
+
+.filter-btn.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 10px white;
+    animation: scanline 2s linear infinite;
+}
+
+@keyframes scanline {
+    0% { top: 0; }
+    100% { top: 100%; }
 }
 
 .movie-grid {
@@ -216,29 +250,52 @@ nav {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
-    .hero-content h1 { font-size: 2.2rem; }
-    .hero-subtitle { font-size: 1rem; letter-spacing: 2px; }
+    .hero-content h1 { font-size: 2.22rem; }
+    .hero-subtitle { font-size: 0.9rem; letter-spacing: 3px; }
     nav { padding: 15px 20px; }
-    .movie-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+    
     .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
         width: 100%;
+        max-width: 320px;
     }
+    
+    /* Make the first button span both columns to look centered */
+    .hero-actions .filter-btn:first-child {
+        grid-column: span 2;
+    }
+
+    .filters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 15px;
+    }
+
+    .movie-grid { 
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+        gap: 12px; 
+    }
+    
     .filter-btn {
-        padding: 10px 15px;
-        font-size: 0.8rem;
-        flex-grow: 1;
-        max-width: 45%;
+        padding: 14px 10px;
+        font-size: 0.75rem;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
     .hero-content h1 { font-size: 1.8rem; }
-    .filter-btn {
-        max-width: 100%;
-        width: 100%;
+    .hero-actions, .filters {
+        grid-template-columns: 1fr;
+    }
+    .hero-actions .filter-btn:first-child {
+        grid-column: span 1;
     }
 }
