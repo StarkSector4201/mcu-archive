@@ -8,9 +8,8 @@
         "poster": "https://image.tmdb.org/t/p/w500/78696.jpg",
         "synopsis": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
         "characters": [
-            {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://image.tmdb.org/t/p/w500/5B9mSTkee9S79YK9S0hx9yAr7rh.jpg"},
-            {"name": "Pepper Potts", "role": "CEO", "actor": "Gwyneth Paltrow", "img": "https://image.tmdb.org/t/p/w500/7U8XqYtY4cUKyU35aE27iC6mU4a.jpg"},
-            {"name": "Obadiah Stane", "role": "Iron Monger", "actor": "Jeff Bridges", "img": "https://image.tmdb.org/t/p/w500/8X5XqF6Y4XG0S9uA9G9XjY1.jpg"}
+            {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://image.tmdb.org/t/p/w500/A8YPs7Y7jS5X5fX7j5X5fX7j5X5.jpg"},
+            {"name": "Pepper Potts", "role": "CEO", "actor": "Gwyneth Paltrow", "img": "https://image.tmdb.org/t/p/w500/7U8XqYtY4cUKyU35aE27iC6mU4a.jpg"}
         ],
         "watch_link": "https://www.disneyplus.com/movies/iron-man/699761"
     },
@@ -23,9 +22,7 @@
         "poster": "https://image.tmdb.org/t/p/w500/as9SAsmNnQ6X0K1e6pX5t89.jpg",
         "synopsis": "Bruce Banner, a scientist on the run from the U.S. Government, must find a cure for the monster he turns into whenever he loses his temper.",
         "characters": [
-            {"name": "Bruce Banner", "role": "The Hulk", "actor": "Edward Norton", "img": "https://image.tmdb.org/t/p/w500/9X8XqF6Y4XG0S9uA9G9XjY1.jpg"},
-            {"name": "Betty Ross", "role": "Biologist", "actor": "Liv Tyler", "img": "https://image.tmdb.org/t/p/w500/as9SAsmNnQ6X0K1e6pX5t89.jpg"},
-            {"name": "Emil Blonsky", "role": "Abomination", "actor": "Tim Roth", "img": "https://image.tmdb.org/t/p/w500/as9SAsmNnQ6X0K1e6pX5t89.jpg"}
+            {"name": "Bruce Banner", "role": "The Hulk", "actor": "Edward Norton", "img": "https://image.tmdb.org/t/p/w500/9X8XqF6Y4XG0S9uA9G9XjY1.jpg"}
         ],
         "watch_link": "https://www.disneyplus.com/movies/the-incredible-hulk/1S6b6o7v7"
     },
@@ -39,8 +36,7 @@
         "synopsis": "With the world now aware of his identity as Iron Man, Tony Stark must maneuver against speculative powers and a new enemy connected to his family's past.",
         "characters": [
             {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://image.tmdb.org/t/p/w500/5B9mSTkee9S79YK9S0hx9yAr7rh.jpg"},
-            {"name": "Natasha Romanoff", "role": "Black Widow", "actor": "Scarlett Johansson", "img": "https://image.tmdb.org/t/p/w500/m99XgY5XqZ5XqO9uA9G9XjY1.jpg"},
-            {"name": "Ivan Vanko", "role": "Whiplash", "actor": "Mickey Rourke", "img": "https://image.tmdb.org/t/p/w500/as9SAsmNnQ6X0K1e6pX5t89.jpg"}
+            {"name": "Natasha Romanoff", "role": "Black Widow", "actor": "Scarlett Johansson", "img": "https://image.tmdb.org/t/p/w500/m99XgY5XqZ5XqO9uA9G9XjY1.jpg"}
         ],
         "watch_link": "https://www.disneyplus.com/movies/iron-man-2/699762"
     },
@@ -54,7 +50,6 @@
         "synopsis": "The powerful but arrogant god Thor is cast out of Asgard to live amongst humans in Midgard (Earth), where he soon becomes one of their finest defenders.",
         "characters": [
             {"name": "Thor Odinson", "role": "God of Thunder", "actor": "Chris Hemsworth", "img": "https://image.tmdb.org/t/p/w500/jP9mSTkee9S79YK9S0hx9yAr7rh.jpg"},
-            {"name": "Jane Foster", "role": "Scientist", "actor": "Natalie Portman", "img": "https://image.tmdb.org/t/p/w500/7U8XqYtY4cUKyU35aE27iC6mU4a.jpg"},
             {"name": "Loki Laufeyson", "role": "God of Mischief", "actor": "Tom Hiddleston", "img": "https://image.tmdb.org/t/p/w500/m99XgY5XqZ5XqO9uA9G9XjY1.jpg"}
         ],
         "watch_link": "https://www.disneyplus.com/movies/thor/699763"
@@ -68,9 +63,7 @@
         "poster": "https://image.tmdb.org/t/p/w500/4NWWpT0jiMUak8r6jfpvG4eBgFU.jpg",
         "synopsis": "Steve Rogers, a rejected military soldier, transforms into Captain America after taking a dose of a Super-Soldier serum. But being Captain America comes at a price as he attempts to take down a war monger and a terrorist organization.",
         "characters": [
-            {"name": "Steve Rogers", "role": "Captain America", "actor": "Chris Evans", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"},
-            {"name": "Peggy Carter", "role": "SSR Agent", "actor": "Hayley Atwell", "img": "https://image.tmdb.org/t/p/w500/7U8XqYtY4cUKyU35aE27iC6mU4a.jpg"},
-            {"name": "Johann Schmidt", "role": "Red Skull", "actor": "Hugo Weaving", "img": "https://image.tmdb.org/t/p/w500/8X5XqF6Y4XG0S9uA9G9XjY1.jpg"}
+            {"name": "Steve Rogers", "role": "Captain America", "actor": "Chris Evans", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
         ],
         "watch_link": "https://www.disneyplus.com/movies/captain-america-the-first-avenger/699759"
     },
@@ -84,8 +77,7 @@
         "synopsis": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
         "characters": [
             {"name": "Steve Rogers", "role": "Captain America", "actor": "Chris Evans", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"},
-            {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://image.tmdb.org/t/p/w500/5B9mSTkee9S79YK9S0hx9yAr7rh.jpg"},
-            {"name": "Bruce Banner", "role": "The Hulk", "actor": "Mark Ruffalo", "img": "https://image.tmdb.org/t/p/w500/j9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
+            {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://image.tmdb.org/t/p/w500/5B9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
         ],
         "watch_link": "https://www.disneyplus.com/movies/the-avengers/699760"
     },
@@ -98,9 +90,7 @@
         "poster": "https://image.tmdb.org/t/p/w500/glKDfE6btFOfjG0nGKEPWRYAD0M.jpg",
         "synopsis": "Blends the style of classic sitcoms with the Marvel Cinematic Universe in which Wanda Maximoff and Vision - two super-powered beings living their ideal suburban lives - begin to suspect that everything is not as it seems.",
         "characters": [
-            {"name": "Wanda Maximoff", "role": "Scarlet Witch", "actor": "Elizabeth Olsen", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"},
-            {"name": "Vision", "role": "Synthezoid", "actor": "Paul Bettany", "img": "https://image.tmdb.org/t/p/w500/7U8XqYtY4cUKyU35aE27iC6mU4a.jpg"},
-            {"name": "Agatha Harkness", "role": "Witch", "actor": "Kathryn Hahn", "img": "https://image.tmdb.org/t/p/w500/8X5XqF6Y4XG0S9uA9G9XjY1.jpg"}
+            {"name": "Wanda Maximoff", "role": "Scarlet Witch", "actor": "Elizabeth Olsen", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
         ],
         "watch_link": "https://www.disneyplus.com/series/wandavision/49y627o3"
     },
@@ -113,9 +103,7 @@
         "poster": "https://image.tmdb.org/t/p/w500/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
         "synopsis": "The mercurial villain Loki resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.”",
         "characters": [
-            {"name": "Loki Laufeyson", "role": "Variant L1130", "actor": "Tom Hiddleston", "img": "https://image.tmdb.org/t/p/w500/m99XgY5XqZ5XqO9uA9G9XjY1.jpg"},
-            {"name": "Mobius M. Mobius", "role": "TVA Agent", "actor": "Owen Wilson", "img": "https://image.tmdb.org/t/p/w500/as9SAsmNnQ6X0K1e6pX5t89.jpg"},
-            {"name": "Sylvie", "role": "Loki Variant", "actor": "Sophia Di Martino", "img": "https://image.tmdb.org/t/p/w500/j9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
+            {"name": "Loki Laufeyson", "role": "Variant L1130", "actor": "Tom Hiddleston", "img": "https://image.tmdb.org/t/p/w500/m99XgY5XqZ5XqO9uA9G9XjY1.jpg"}
         ],
         "watch_link": "https://www.disneyplus.com/series/loki/49y627o3"
     },
@@ -128,9 +116,7 @@
         "poster": "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
         "synopsis": "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
         "characters": [
-            {"name": "Peter Parker", "role": "Spider-Man", "actor": "Tom Holland", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"},
-            {"name": "Stephen Strange", "role": "Doctor Strange", "actor": "Benedict Cumberbatch", "img": "https://image.tmdb.org/t/p/w500/7U8XqYtY4cUKyU35aE27iC6mU4a.jpg"},
-            {"name": "MJ", "role": "Student", "actor": "Zendaya", "img": "https://image.tmdb.org/t/p/w500/as9SAsmNnQ6X0K1e6pX5t89.jpg"}
+            {"name": "Peter Parker", "role": "Spider-Man", "actor": "Tom Holland", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
         ],
         "watch_link": "https://www.sonypictures.com/movies/spidermannowayhome"
     },
@@ -143,9 +129,7 @@
         "poster": "https://image.tmdb.org/t/p/w500/r2J02Z2OpNTbvSNEhlrZJ9sKUQA.jpg",
         "synopsis": "Still reeling from the loss of Gamora, Peter Quill rallies his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.",
         "characters": [
-            {"name": "Peter Quill", "role": "Star-Lord", "actor": "Chris Pratt", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"},
-            {"name": "Rocket Raccoon", "role": "Pilot", "actor": "Bradley Cooper", "img": "https://image.tmdb.org/t/p/w500/7U8XqYtY4cUKyU35aE27iC6mU4a.jpg"},
-            {"name": "Gamora", "role": "Warrior", "actor": "Zoe Saldaña", "img": "https://image.tmdb.org/t/p/w500/as9SAsmNnQ6X0K1e6pX5t89.jpg"}
+            {"name": "Peter Quill", "role": "Star-Lord", "actor": "Chris Pratt", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
         ],
         "watch_link": "https://www.disneyplus.com/movies/guardians-of-the-galaxy-vol-3/699761"
     }

@@ -30,8 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function proxyImage(url) {
         if (!url) return '';
-        if (url.startsWith('https://m.media-amazon.com')) {
-            return `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
+        // If it's a local file or already proxied, return as is
+        if (url.startsWith('mcu_') || url.includes('images.weserv.nl')) return url;
+        // Proxy all external images to avoid hotlinking/CORB issues
+        if (url.startsWith('http')) {
+            return `https://images.weserv.nl/?url=${encodeURIComponent(url)}&default=https://raw.githubusercontent.com/StarkSector4201/mcu-archive/main/webapp/mcu_hero.png`;
         }
         return url;
     }
