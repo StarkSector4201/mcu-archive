@@ -208,6 +208,9 @@ nav {
     border: 1px solid rgba(255,255,255,0.05);
     position: relative;
     aspect-ratio: 2/3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     cursor: pointer;
 }
 
@@ -301,9 +304,12 @@ nav {
 
 .modal-poster-container img {
     width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
     border-radius: 4px;
     box-shadow: 0 5px 25px rgba(0,0,0,0.5);
     border: 1px solid rgba(255,255,255,0.1);
+    background: var(--card-bg);
 }
 
 .modal-info h2 {
