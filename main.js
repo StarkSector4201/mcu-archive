@@ -68,9 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             
             card.innerHTML = `
+                <div class="card-badge phase-badge">PHASE ${item.phase}</div>
+                <div class="card-badge year-badge">${item.year}</div>
                 <div class="card-content">
-                    <p class="card-meta">PHASE ${item.phase} | ${item.year}</p>
                     <h3 class="card-title">${item.title}</h3>
+                    <div class="card-hover-hint">MISSION INTEL ></div>
                 </div>
             `;
             
