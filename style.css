@@ -392,8 +392,34 @@ nav {
     color: var(--accent-color);
     font-weight: 700;
     letter-spacing: 2px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 0.9rem;
+}
+
+.modal-streaming-meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.meta-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quality-tag {
+    color: #ff9d00;
+    border-color: rgba(255, 157, 0, 0.3);
+}
+
+.lang-tag {
+    color: var(--accent-color);
+    border-color: rgba(0, 210, 255, 0.3);
 }
 
 .modal-synopsis {
