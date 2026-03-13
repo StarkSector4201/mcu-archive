@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCU Archive | Avengers Tactical Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="bg-overlay"></div>
+        <div class="hero-background" id="heroBg"></div>
+
+        <nav>
+            <div class="logo">
+                <span style="color: white; border: 2px solid var(--primary-color); padding: 0 5px;">MARVEL</span>
+                <span>ARCHIVE</span>
+            </div>
+            <div class="nav-links">
+                <!-- Telegram Mini App specific features could go here -->
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-subtitle">BEYOND THE MULTIVERSE</p>
+                <h1>MCU PROTOCOL</h1>
+                <div class="hero-actions">
+                    <button class="filter-btn active" data-filter="all">ALL MISSIONS</button>
+                    <button class="filter-btn" data-filter="movie">MOVIES</button>
+                    <button class="filter-btn" data-filter="series">SERIES</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-container">
+            <div class="filters" id="phaseFilters">
+                <button class="filter-btn active" data-phase="all">ALL PHASES</button>
+                <button class="filter-btn" data-phase="1">PHASE 1</button>
+                <button class="filter-btn" data-phase="2">PHASE 2</button>
+                <button class="filter-btn" data-phase="3">PHASE 3</button>
+                <button class="filter-btn" data-phase="4">PHASE 4</button>
+                <button class="filter-btn" data-phase="5">PHASE 5</button>
+            </div>
+
+            <div class="movie-grid" id="movieGrid">
+                <!-- Cards will be injected by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
