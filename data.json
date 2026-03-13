@@ -5,7 +5,14 @@
         "year": "2008",
         "phase": 1,
         "type": "movie",
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg"
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg",
+        "synopsis": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+        "characters": [
+            {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://m.media-amazon.com/images/M/MV5BMjExOTY3NzExM15BMl5BanBnXkFtZTcwOTg4MzE2NA@@._V1_.jpg"},
+            {"name": "Pepper Potts", "role": "Stark Industries CEO", "actor": "Gwyneth Paltrow", "img": "https://m.media-amazon.com/images/M/MV5BMTM3MTM5ODA4Ml5BMl5BanBnXkFtZTcwMDEwNjYyMQ@@._V1_.jpg"},
+            {"name": "Obadiah Stane", "role": "Iron Monger", "actor": "Jeff Bridges", "img": "https://m.media-amazon.com/images/M/MV5BMTM0ODAyODU1MF5BMl5BanBnXkFtZTcwMjA5Nzc2Mw@@._V1_.jpg"}
+        ],
+        "watch_link": "https://www.disneyplus.com/movies/iron-man/699761"
     },
     {
         "id": 2,
@@ -13,7 +20,14 @@
         "year": "2008",
         "phase": 1,
         "type": "movie",
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTUyNzk3MjA1OF5BMl5BanBnXkFtZTcwMTE1Njg2MQ@@._V1_.jpg"
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTUyNzk3MjA1OF5BMl5BanBnXkFtZTcwMTE1Njg2MQ@@._V1_.jpg",
+        "synopsis": "Bruce Banner, a scientist on the run from the U.S. Government, must find a cure for the monster he turns into whenever he loses his temper.",
+        "characters": [
+            {"name": "Bruce Banner", "role": "The Hulk", "actor": "Edward Norton", "img": "https://m.media-amazon.com/images/M/MV5BMTYwNjY0MTA1MV5BMl5BanBnXkFtZTYwNDU5MTc1._V1_.jpg"},
+            {"name": "Betty Ross", "role": "Cellular Biologist", "actor": "Liv Tyler", "img": "https://m.media-amazon.com/images/M/MV5BMTU3MTU1MjI5NV5BMl5BanBnXkFtZTcwMjI5Njg2MQ@@._V1_.jpg"},
+            {"name": "Emil Blonsky", "role": "Abomination", "actor": "Tim Roth", "img": "https://m.media-amazon.com/images/M/MV5BMjA5Njk3MjM4OV5BMl5BanBnXkFtZTcwMTYyNzY3Mg@@._V1_.jpg"}
+        ],
+        "watch_link": "https://www.disneyplus.com/movies/the-incredible-hulk/1S6b6o7v7"
     },
     {
         "id": 3,
@@ -21,7 +35,14 @@
         "year": "2010",
         "phase": 1,
         "type": "movie",
-        "poster": "https://m.media-amazon.com/images/M/MV5BZGVhN2ViZGUtYjI4Yy00YmYyLWE0M2ItN2Y3NWFmZTFkMjk2XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg"
+        "poster": "https://m.media-amazon.com/images/M/MV5BZGVhN2ViZGUtYjI4Yy00YmYyLWE0M2ItN2Y3NWFmZTFkMjk2XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+        "synopsis": "With the world now aware of his identity as Iron Man, Tony Stark must maneuver against speculative powers and a new enemy connected to his family's past.",
+        "characters": [
+            {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://m.media-amazon.com/images/M/MV5BMjExOTY3NzExM15BMl5BanBnXkFtZTcwOTg4MzE2NA@@._V1_.jpg"},
+            {"name": "Natasha Romanoff", "role": "Black Widow", "actor": "Scarlett Johansson", "img": "https://m.media-amazon.com/images/M/MV5BMTM3OTUwMDYwNl5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._V1_.jpg"},
+            {"name": "Ivan Vanko", "role": "Whiplash", "actor": "Mickey Rourke", "img": "https://m.media-amazon.com/images/M/MV5BMTM2NDMxMzU0N15BMl5BanBnXkFtZTcwNzY3MTc1Mw@@._V1_.jpg"}
+        ],
+        "watch_link": "https://www.disneyplus.com/movies/iron-man-2/699762"
     },
     {
         "id": 4,
@@ -29,7 +50,14 @@
         "year": "2011",
         "phase": 1,
         "type": "movie",
-        "poster": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzk3Mi00ZTAyLTg3NGAtYWU1ZTRiZGUwNmJlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+        "poster": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzk3Mi00ZTAyLTg3NGAtYWU1ZTRiZGUwNmJlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+        "synopsis": "The powerful but arrogant god Thor is cast out of Asgard to live amongst humans in Midgard (Earth), where he soon becomes one of their finest defenders.",
+        "characters": [
+            {"name": "Thor Odinson", "role": "God of Thunder", "actor": "Chris Hemsworth", "img": "https://m.media-amazon.com/images/M/MV5BOTU2MTQwMDMxOF5BMl5BanBnXkFtZTcwNjU1NDA3OQ@@._V1_.jpg"},
+            {"name": "Jane Foster", "role": "Astrophysicist", "actor": "Natalie Portman", "img": "https://m.media-amazon.com/images/M/MV5BMTQ3NzkxNjU4NF5BMl5BanBnXkFtZTcwNDY2Njc3Nw@@._V1_.jpg"},
+            {"name": "Loki Laufeyson", "role": "God of Mischief", "actor": "Tom Hiddleston", "img": "https://m.media-amazon.com/images/M/MV5BMTU0NTMxNzUxN15BMl5BanBnXkFtZTcwNjg4MjY1OQ@@._V1_.jpg"}
+        ],
+        "watch_link": "https://www.disneyplus.com/movies/thor/699763"
     },
     {
         "id": 5,
@@ -37,7 +65,14 @@
         "year": "2011",
         "phase": 1,
         "type": "movie",
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTYzZWE3MDAtOTExMS00OTdkLThjNDAtNjhmMjIyZThiNjU1XkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg"
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTYzZWE3MDAtOTExMS00OTdkLThjNDAtNjhmMjIyZThiNjU1XkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg",
+        "synopsis": "Steve Rogers, a rejected military soldier, transforms into Captain America after taking a dose of a Super-Soldier serum. But being Captain America comes at a price as he attempts to take down a war monger and a terrorist organization.",
+        "characters": [
+            {"name": "Steve Rogers", "role": "Captain America", "actor": "Chris Evans", "img": "https://m.media-amazon.com/images/M/MV5BMTU2NTg1OTQzMF5BMl5BanBnXkFtZTcwNjIyOTkyMg@@._V1_.jpg"},
+            {"name": "Peggy Carter", "role": "SSR Agent", "actor": "Hayley Atwell", "img": "https://m.media-amazon.com/images/M/MV5BMTM5OTY5NDM0MF5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._V1_.jpg"},
+            {"name": "Johann Schmidt", "role": "Red Skull", "actor": "Hugo Weaving", "img": "https://m.media-amazon.com/images/M/MV5BMTkzMjM1OTM1N15BMl5BanBnXkFtZTcwNjIyOTkyMg@@._V1_.jpg"}
+        ],
+        "watch_link": "https://www.disneyplus.com/movies/captain-america-the-first-avenger/699759"
     },
     {
         "id": 6,
@@ -45,7 +80,14 @@
         "year": "2012",
         "phase": 1,
         "type": "movie",
-        "poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNjQxOC00YjgzLTgxOTktNjIwMTEwZDVmYWQ1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+        "poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNjQxOC00YjgzLTgxOTktNjIwMTEwZDVmYWQ1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+        "synopsis": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+        "characters": [
+            {"name": "Steve Rogers", "role": "Captain America", "actor": "Chris Evans", "img": "https://m.media-amazon.com/images/M/MV5BMTU2NTg1OTQzMF5BMl5BanBnXkFtZTcwNjIyOTkyMg@@._V1_.jpg"},
+            {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://m.media-amazon.com/images/M/MV5BMjExOTY3NzExM15BMl5BanBnXkFtZTcwOTg4MzE2NA@@._V1_.jpg"},
+            {"name": "Bruce Banner", "role": "The Hulk", "actor": "Mark Ruffalo", "img": "https://m.media-amazon.com/images/M/MV5BMTU2NTg1OTQzMF5BMl5BanBnXkFtZTcwNjIyOTkyMg@@._V1_.jpg"}
+        ],
+        "watch_link": "https://www.disneyplus.com/movies/the-avengers/699760"
     },
     {
         "id": 7,
@@ -53,7 +95,14 @@
         "year": "2021",
         "phase": 4,
         "type": "series",
-        "poster": "https://m.media-amazon.com/images/M/MV5BYjJiZjMzYzktNjU0NS00OTkxLWEwYzItMzM1OTQ3NWQzMmNhXkEyXkFqcGdeQXVyNjEwNTM2Mjc@._V1_.jpg"
+        "poster": "https://m.media-amazon.com/images/M/MV5BYjJiZjMzYzktNjU0NS00OTkxLWEwYzItMzM1OTQ3NWQzMmNhXkEyXkFqcGdeQXVyNjEwNTM2Mjc@._V1_.jpg",
+        "synopsis": "Blends the style of classic sitcoms with the Marvel Cinematic Universe in which Wanda Maximoff and Vision - two super-powered beings living their ideal suburban lives - begin to suspect that everything is not as it seems.",
+        "characters": [
+            {"name": "Wanda Maximoff", "role": "Scarlet Witch", "actor": "Elizabeth Olsen", "img": "https://m.media-amazon.com/images/M/MV5BMTYzZWE3MDAtOTExMS00OTdkLThjNDAtNjhmMjIyZThiNjU1XkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg"},
+            {"name": "Vision", "role": "Synthezoid", "actor": "Paul Bettany", "img": "https://m.media-amazon.com/images/M/MV5BMTYzZWE3MDAtOTExMS00OTdkLThjNDAtNjhmMjIyZThiNjU1XkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg"},
+            {"name": "Agatha Harkness", "role": "Witch", "actor": "Kathryn Hahn", "img": "https://m.media-amazon.com/images/M/MV5BMTYzZWE3MDAtOTExMS00OTdkLThjNDAtNjhmMjIyZThiNjU1XkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg"}
+        ],
+        "watch_link": "https://www.disneyplus.com/series/wandavision/49y627o3"
     },
     {
         "id": 8,
@@ -61,22 +110,13 @@
         "year": "2021",
         "phase": 4,
         "type": "series",
-        "poster": "https://m.media-amazon.com/images/M/MV5BNTkwOTE1ZDYtNzA3Ni00YTdmLTkwNWYtNmVjZjZiZjk2ZDhjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg"
-    },
-    {
-        "id": 9,
-        "title": "Spider-Man: No Way Home",
-        "year": "2021",
-        "phase": 4,
-        "type": "movie",
-        "poster": "https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_.jpg"
-    },
-    {
-        "id": 10,
-        "title": "Guardians of the Galaxy Vol. 3",
-        "year": "2023",
-        "phase": 5,
-        "type": "movie",
-        "poster": "https://m.media-amazon.com/images/M/MV5BMDgxOTUxMzEtZGE2Ni00MzAzLWFmZmItOTUyYzZhNWUyZGEzXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+        "poster": "https://m.media-amazon.com/images/M/MV5BNTkwOTE1ZDYtNzA3Ni00YTdmLTkwNWYtNmVjZjZiZjk2ZDhjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg",
+        "synopsis": "The mercurial villain Loki resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.”",
+        "characters": [
+            {"name": "Loki Laufeyson", "role": "Variant L1130", "actor": "Tom Hiddleston", "img": "https://m.media-amazon.com/images/M/MV5BMTU0NTMxNzUxN15BMl5BanBnXkFtZTcwNjg4MjY1OQ@@._V1_.jpg"},
+            {"name": "Mobius M. Mobius", "role": "TVA Agent", "actor": "Owen Wilson", "img": "https://m.media-amazon.com/images/M/MV5BMTU0NTMxNzUxN15BMl5BanBnXkFtZTcwNjg4MjY1OQ@@._V1_.jpg"},
+            {"name": "Sylvie", "role": "Loki Variant", "actor": "Sophia Di Martino", "img": "https://m.media-amazon.com/images/M/MV5BMTU0NTMxNzUxN15BMl5BanBnXkFtZTcwNjg4MjY1OQ@@._V1_.jpg"}
+        ],
+        "watch_link": "https://www.disneyplus.com/series/loki/49y627o3"
     }
 ]

@@ -4,17 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.hero-actions .filter-btn');
     const phaseButtons = document.querySelectorAll('#phaseFilters .filter-btn');
     
+    // Modal Elements
+    const modal = document.getElementById('movieModal');
+    const closeModal = document.querySelector('.close-modal');
+    const modalPoster = document.getElementById('modalPoster');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalYearPhase = document.getElementById('modalYearPhase');
+    const modalSynopsis = document.getElementById('modalSynopsis');
+    const modalWatchBtn = document.getElementById('modalWatchBtn');
+    const characterGrid = document.getElementById('characterGrid');
+
     let mcuData = [];
     let currentFilter = 'all';
     let currentPhase = 'all';
-
-    // Set Hero Background from the generated image
-    // Note: I'll use the relative path or base64 if I had it, 
-    // but for now I'll apply a placeholder or the specific filename if I can reference it.
-    // Given the environment, I'll use a direct reference to the generated image file.
-    const heroImagePath = 'mcu_hero_background_cinematic_1773397520929.png'; // Assuming it's in the same dir for now or accessible
-    // In a real scenario, we'd ensure the image is in the webapp assets folder.
-    // I will copy it there in the next step.
 
     async function loadData() {
         try {
@@ -27,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderGrid() {
+        if (!movieGrid) return;
         movieGrid.innerHTML = '';
         
         const filtered = mcuData.filter(item => {
@@ -55,10 +58,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showDetails(item) {
-        // Implement modal or detail view logic here
-        console.log('Viewing details for:', item.title);
-        // For now, let's just log it. A full modal can be added in the polish phase.
+        if (!modal) return;
+        
+        modalTitle.innerText = item.title;
+        modalYearPhase.innerText = `PHASE ${item.phase} | ${item.year}`;
+        modalSynopsis.innerText = item.synopsis || "Strategic intelligence gathering in progress for this mission...";
+        modalPoster.src = item.poster;
+        modalWatchBtn.href = item.watch_link || "#";
+
+        // Render Character Cards
+        characterGrid.innerHTML = '';
+        if (item.characters && item.characters.length > 0) {
+            item.characters.forEach(char => {
+                const charCard = document.createElement('div');
+                charCard.className = 'char-card';
+                charCard.innerHTML = `
+                    <img src="${char.img}" alt="${char.name}" class="char-img">
+                    <span class="char-name">${char.name}</span>
+                    <span class="char-role">${char.role}</span>
+                    <span class="char-actor">${char.actor}</span>
+                `;
+                characterGrid.appendChild(charCard);
+            });
+        }
+
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scroll
     }
+
+    // Modal Closing Logic
+    if (closeModal) {
+        closeModal.onclick = () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+    }
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    };
 
     // Type Filters
     filterButtons.forEach(btn => {

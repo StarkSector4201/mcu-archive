@@ -49,6 +49,35 @@
         </section>
     </div>
 
+        <!-- Detail Modal -->
+        <div id="movieModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-body">
+                    <div class="modal-header-grid">
+                        <div class="modal-poster-container">
+                            <img id="modalPoster" src="" alt="Poster">
+                        </div>
+                        <div class="modal-info">
+                            <h2 id="modalTitle"></h2>
+                            <p id="modalYearPhase" class="modal-meta"></p>
+                            <p id="modalSynopsis" class="modal-synopsis"></p>
+                            <a id="modalWatchBtn" href="#" target="_blank" class="watch-btn">
+                                <span class="btn-icon">▶</span> START MISSION
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="character-section">
+                        <h3 class="section-title">Tactical Personnel (Cast)</h3>
+                        <div id="characterGrid" class="character-grid">
+                            <!-- Character cards will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <script src="main.js"></script>
 </body>
 </html>
