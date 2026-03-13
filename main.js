@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="card-badge year-badge">${item.year}</div>
                 <div class="card-content">
                     <h3 class="card-title">${item.title}</h3>
-                    <div class="card-hover-hint">MISSION INTEL ></div>
+                    <div class="card-hover-hint">PLAY NOW ></div>
                 </div>
             `;
             

@@ -10,7 +10,7 @@
         "characters": [
             {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://image.tmdb.org/t/p/w500/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/movies/iron-man/699761"
+        "watch_link": "local_streaming_server/iron_man_1080p.mp4"
     },
     {
         "id": 2,
@@ -23,7 +23,7 @@
         "characters": [
             {"name": "Bruce Banner", "role": "The Hulk", "actor": "Edward Norton", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/movies/the-incredible-hulk/1S6b6o7v7"
+        "watch_link": "local_streaming_server/incredible_hulk_1080p.mp4"
     },
     {
         "id": 3,
@@ -36,7 +36,7 @@
         "characters": [
             {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://image.tmdb.org/t/p/w500/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/movies/iron-man-2/699762"
+        "watch_link": "local_streaming_server/iron_man_2_1080p.mp4"
     },
     {
         "id": 4,
@@ -49,7 +49,7 @@
         "characters": [
             {"name": "Thor Odinson", "role": "God of Thunder", "actor": "Chris Hemsworth", "img": "https://image.tmdb.org/t/p/w500/piQGdoIQOF3C1EI5cbYZLAW1gfj.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/movies/thor/699763"
+        "watch_link": "local_streaming_server/thor_1080p.mp4"
     },
     {
         "id": 5,
@@ -62,7 +62,7 @@
         "characters": [
             {"name": "Steve Rogers", "role": "Captain America", "actor": "Chris Evans", "img": "https://image.tmdb.org/t/p/w500/3bOGNsHlrswhyW79uvIHH1V43JI.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/movies/captain-america-the-first-avenger/699759"
+        "watch_link": "local_streaming_server/captain_america_1_1080p.mp4"
     },
     {
         "id": 6,
@@ -76,7 +76,7 @@
             {"name": "Steve Rogers", "role": "Captain America", "actor": "Chris Evans", "img": "https://image.tmdb.org/t/p/w500/3bOGNsHlrswhyW79uvIHH1V43JI.jpg"},
             {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://image.tmdb.org/t/p/w500/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/movies/the-avengers/699760"
+        "watch_link": "local_streaming_server/the_avengers_1080p.mp4"
     },
     {
         "id": 7,
@@ -89,7 +89,7 @@
         "characters": [
             {"name": "T'Challa", "role": "Black Panther", "actor": "Chadwick Boseman", "img": "https://image.tmdb.org/t/p/w500/9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/movies/black-panther/1S6b6o7v7"
+        "watch_link": "local_streaming_server/black_panther_1080p.mp4"
     },
     {
         "id": 8,
@@ -102,7 +102,7 @@
         "characters": [
             {"name": "Tony Stark", "role": "Iron Man", "actor": "Robert Downey Jr.", "img": "https://image.tmdb.org/t/p/w500/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/movies/avengers-endgame/1S6b6o7v7"
+        "watch_link": "local_streaming_server/avengers_endgame_1080p.mp4"
     },
     {
         "id": 9,
@@ -115,7 +115,7 @@
         "characters": [
             {"name": "Wanda Maximoff", "role": "Scarlet Witch", "actor": "Elizabeth Olsen", "img": "https://image.tmdb.org/t/p/w500/j9mSTkee9S79YK9S0hx9yAr7rh.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/series/wandavision/49y627o3"
+        "watch_link": "local_streaming_server/wandavision_s1_720p.mkv"
     },
     {
         "id": 10,
@@ -128,6 +128,6 @@
         "characters": [
             {"name": "Loki", "role": "God of Mischief", "actor": "Tom Hiddleston", "img": "https://image.tmdb.org/t/p/w500/3bOGNsHlrswhyW79uvIHH1V43JI.jpg"}
         ],
-        "watch_link": "https://www.disneyplus.com/series/loki/49y627o3"
+        "watch_link": "local_streaming_server/loki_s1_720p.mkv"
     }
 ]
