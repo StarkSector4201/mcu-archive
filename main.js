@@ -28,6 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function proxyImage(url) {
+        if (!url) return '';
+        if (url.startsWith('https://m.media-amazon.com')) {
+            return `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
+        }
+        return url;
+    }
+
     function renderGrid() {
         if (!movieGrid) return;
         movieGrid.innerHTML = '';
@@ -41,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
         filtered.forEach(item => {
             const card = document.createElement('div');
             card.className = 'movie-card';
-            card.style.backgroundImage = `url(${item.poster})`;
+            const proxiedPoster = proxyImage(item.poster);
+            card.style.backgroundImage = `url("${proxiedPoster}")`;
             card.style.backgroundSize = 'cover';
             card.style.backgroundPosition = 'center';
             
@@ -63,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.innerText = item.title;
         modalYearPhase.innerText = `PHASE ${item.phase} | ${item.year}`;
         modalSynopsis.innerText = item.synopsis || "Strategic intelligence gathering in progress for this mission...";
-        modalPoster.src = item.poster;
+        modalPoster.src = proxyImage(item.poster);
         modalWatchBtn.href = item.watch_link || "#";
 
         // Render Character Cards
@@ -73,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const charCard = document.createElement('div');
                 charCard.className = 'char-card';
                 charCard.innerHTML = `
-                    <img src="${char.img}" alt="${char.name}" class="char-img">
+                    <img src="${proxyImage(char.img)}" alt="${char.name}" class="char-img">
                     <span class="char-name">${char.name}</span>
                     <span class="char-role">${char.role}</span>
                     <span class="char-actor">${char.actor}</span>
