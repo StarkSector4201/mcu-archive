@@ -48,11 +48,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         filtered.forEach(item => {
             const card = document.createElement('div');
-            card.className = 'movie-card';
+            card.className = 'movie-card loading';
             const proxiedPoster = proxyImage(item.poster);
-            card.style.backgroundImage = `url("${proxiedPoster}")`;
-            card.style.backgroundSize = 'cover';
-            card.style.backgroundPosition = 'center';
+            
+            // Create an image object to check for loading/error
+            const img = new Image();
+            img.src = proxiedPoster;
+            img.onload = () => {
+                card.classList.remove('loading');
+                card.style.backgroundImage = `url("${proxiedPoster}")`;
+            };
+            img.onerror = () => {
+                card.classList.remove('loading');
+                card.classList.add('image-error');
+                card.innerHTML += `<div class="error-overlay">SIGNAL LOST</div>`;
+            };
             
             card.innerHTML = `
                 <div class="card-content">
@@ -72,7 +82,21 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.innerText = item.title;
         modalYearPhase.innerText = `PHASE ${item.phase} | ${item.year}`;
         modalSynopsis.innerText = item.synopsis || "Strategic intelligence gathering in progress for this mission...";
-        modalPoster.src = proxyImage(item.poster);
+        
+        // Handle Modal Poster Fallback
+        modalPoster.src = '';
+        modalPoster.classList.add('loading');
+        const mainImg = new Image();
+        mainImg.src = proxyImage(item.poster);
+        mainImg.onload = () => {
+            modalPoster.classList.remove('loading');
+            modalPoster.src = mainImg.src;
+        };
+        mainImg.onerror = () => {
+            modalPoster.classList.remove('loading');
+            modalPoster.src = 'mcu_hero.png'; // Fallback to hero image
+        };
+        
         modalWatchBtn.href = item.watch_link || "#";
 
         // Render Character Cards
@@ -81,8 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
             item.characters.forEach(char => {
                 const charCard = document.createElement('div');
                 charCard.className = 'char-card';
+                const charImgSrc = proxyImage(char.img);
+                
                 charCard.innerHTML = `
-                    <img src="${proxyImage(char.img)}" alt="${char.name}" class="char-img">
+                    <div class="char-img-container">
+                        <img src="${charImgSrc}" alt="${char.name}" class="char-img" onerror="this.src='mcu_hero.png';this.parentElement.classList.add('img-fail');">
+                    </div>
                     <span class="char-name">${char.name}</span>
                     <span class="char-role">${char.role}</span>
                     <span class="char-actor">${char.actor}</span>
@@ -92,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent scroll
+        document.body.style.overflow = 'hidden';
     }
 
     // Modal Closing Logic
