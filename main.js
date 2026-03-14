@@ -114,23 +114,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         modalWatchBtn.onclick = (e) => {
-            const finalLink = item.telegram_link || item.watch_link || "#";
+            e.preventDefault();
+            const telegramLink = item.telegram_link;
+            const watchLink = item.watch_link;
+            const finalLink = telegramLink || watchLink || "#";
             
-            // If we have a direct streamable link (or for this demo, any watch_link starting with http)
-            if (finalLink.includes('.mp4') || finalLink.includes('.mkv')) {
-                e.preventDefault();
+            console.log("Mission Protocol: Initiating Stream", { telegramLink, watchLink, finalLink });
+
+            // 1. Try In-App Player first if we have a direct media file
+            const streamLink = [watchLink, telegramLink].find(l => l && (l.includes('.mp4') || l.includes('.mkv') || l.includes('.webm')));
+            
+            if (streamLink) {
+                console.log("Stealth Player: Direct link detected", streamLink);
                 modalPoster.style.display = 'none';
                 videoContainer.style.display = 'flex';
-                videoPlayer.src = finalLink;
-                videoPlayer.play();
+                videoPlayer.src = streamLink;
+                videoPlayer.play().catch(err => {
+                    console.error("Playback failed, falling back to external link", err);
+                    window.open(streamLink, '_blank');
+                });
                 return false;
             }
 
+            // 2. Try Telegram WebApp API if available
             if (window.Telegram && window.Telegram.WebApp && finalLink !== "#") {
-                e.preventDefault();
+                console.log("Telegram Protocol: Using WebApp.openLink", finalLink);
                 window.Telegram.WebApp.openLink(finalLink);
                 return false;
             }
+
+            // 3. Global Fallback: Open in new window
+            if (finalLink !== "#") {
+                console.log("Safe Protocol: Using window.open", finalLink);
+                window.open(finalLink, '_blank');
+            }
+            
+            return false;
         };
         modalWatchBtn.href = "#";
 
