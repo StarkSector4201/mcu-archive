@@ -102,7 +102,15 @@ document.addEventListener('DOMContentLoaded', () => {
             modalPoster.src = 'mcu_hero.png'; // Fallback to hero image
         };
         
-        modalWatchBtn.href = item.watch_link || "#";
+        modalWatchBtn.onclick = (e) => {
+            const finalLink = item.telegram_link || item.watch_link || "#";
+            if (window.Telegram && window.Telegram.WebApp && finalLink !== "#") {
+                e.preventDefault();
+                window.Telegram.WebApp.openLink(finalLink);
+                return false;
+            }
+        };
+        modalWatchBtn.href = item.telegram_link || item.watch_link || "#";
 
         // Render Character Cards
         characterGrid.innerHTML = '';
