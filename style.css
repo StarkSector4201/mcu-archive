@@ -562,6 +562,73 @@ nav {
     }
     
     .hero-actions .filter-btn:first-child { grid-column: span 2; }
+    
+    .modal-body { padding: 25px 20px; }
+    
+    .modal-header-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .modal-poster-container {
+        width: 200px;
+        margin: 0 auto;
+    }
+    
+    .modal-info h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    .modal-meta {
+        text-align: center;
+        font-size: 0.8rem;
+    }
+    
+    .modal-streaming-meta {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .subtitle-selection {
+        padding: 12px;
+    }
+    
+    .sub-options {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .sub-option {
+        flex: 1;
+        min-width: 80px;
+        text-align: center;
+        font-size: 0.75rem;
+    }
+    
+    .modal-synopsis {
+        font-size: 0.95rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    .watch-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 18px;
+    }
+    
+    .character-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+    
+    .section-title {
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+    }
 
     .filters {
         display: grid;
