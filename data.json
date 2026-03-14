@@ -64,7 +64,7 @@
         "characters": [
             {"name": "Steve Rogers", "role": "Captain America", "actor": "Chris Evans", "img": "https://image.tmdb.org/t/p/w500/3bOGNsHlrswhyW79uvIHH1V43JI.jpg"}
         ],
-        "watch_link": "local_streaming_server/captain_america_1_1080p.mp4",
+        "watch_link": "https://raw.githubusercontent.com/StarkSector4201/mcu-archive/main/webapp/sample_mission.mp4",
         "telegram_link": "https://t.me/c/3521021790/3",
         "subtitle_ar": "https://www.subtitlecat.com/subs/16/Captain.America.The.First.Avenger.2011.1080p.BluRay.x264.YIFY.ar.srt"
     },

@@ -102,15 +102,37 @@ document.addEventListener('DOMContentLoaded', () => {
             modalPoster.src = 'mcu_hero.png'; // Fallback to hero image
         };
         
+        const videoContainer = document.getElementById('videoPlayerContainer');
+        const videoPlayer = document.getElementById('mainVideo');
+
+        // Reset Player State
+        if (videoPlayer) {
+            videoPlayer.pause();
+            videoPlayer.src = "";
+            videoContainer.style.display = 'none';
+            modalPoster.style.display = 'block';
+        }
+
         modalWatchBtn.onclick = (e) => {
             const finalLink = item.telegram_link || item.watch_link || "#";
+            
+            // If we have a direct streamable link (or for this demo, any watch_link starting with http)
+            if (finalLink.includes('.mp4') || finalLink.includes('.mkv')) {
+                e.preventDefault();
+                modalPoster.style.display = 'none';
+                videoContainer.style.display = 'flex';
+                videoPlayer.src = finalLink;
+                videoPlayer.play();
+                return false;
+            }
+
             if (window.Telegram && window.Telegram.WebApp && finalLink !== "#") {
                 e.preventDefault();
                 window.Telegram.WebApp.openLink(finalLink);
                 return false;
             }
         };
-        modalWatchBtn.href = item.telegram_link || item.watch_link || "#";
+        modalWatchBtn.href = "#";
 
         // Render Character Cards
         characterGrid.innerHTML = '';
