@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             this.repoOwner = 'StarkSector4201';
             this.repoName = 'mcu-archive';
-            this.filePath = 'webapp/data.json';
+            this.filePath = 'data.json';
             this.token = localStorage.getItem('stark_token') || '';
             this.fileSha = '';
             
