@@ -247,5 +247,144 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- STARK DASHBOARD LOGIC ---
+    class StarkDashboard {
+        constructor() {
+            this.modal = document.getElementById('starkDashboard');
+            this.authPanel = document.getElementById('adminAuth');
+            this.panel = document.getElementById('adminPanel');
+            this.tokenInput = document.getElementById('ghToken');
+            this.authBtn = document.getElementById('authBtn');
+            this.commitBtn = document.getElementById('commitBtn');
+            this.adminGrid = document.getElementById('adminMovieGrid');
+            this.closeBtn = document.querySelector('.close-admin');
+            
+            this.repoOwner = 'StarkSector4201';
+            this.repoName = 'mcu-archive';
+            this.filePath = 'webapp/data.json';
+            this.token = localStorage.getItem('stark_token') || '';
+            this.fileSha = '';
+            
+            this.init();
+        }
+
+        init() {
+            if (this.token) this.tokenInput.value = this.token;
+            
+            this.authBtn.onclick = () => this.authorize();
+            this.commitBtn.onclick = () => this.commitChanges();
+            
+            if (this.closeBtn) {
+                this.closeBtn.onclick = () => this.modal.style.display = 'none';
+            }
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('mode') === 'stark') {
+                this.modal.style.display = 'block';
+                if (this.token) this.authorize();
+            }
+        }
+
+        async authorize() {
+            this.token = this.tokenInput.value.trim();
+            if (!this.token) return alert("Soldier, I need a token to access the archives.");
+            
+            localStorage.setItem('stark_token', this.token);
+            this.authBtn.innerText = "AUTHORIZING...";
+            
+            try {
+                const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${this.filePath}`, {
+                    headers: { 'Authorization': `token ${this.token}` }
+                });
+                
+                if (!response.ok) throw new Error("Invalid Token or Repository Access Restricted.");
+                
+                const fileData = await response.json();
+                this.fileSha = fileData.sha;
+                
+                this.authPanel.style.display = 'none';
+                this.panel.style.display = 'flex';
+                this.renderAdminMovies();
+                
+            } catch (error) {
+                alert(`Tactical Error: ${error.message}`);
+                this.authBtn.innerText = "AUTHORIZE";
+            }
+        }
+
+        renderAdminMovies() {
+            this.adminGrid.innerHTML = '';
+            mcuData.forEach((movie, index) => {
+                const item = document.createElement('div');
+                item.className = 'admin-movie-item';
+                item.innerHTML = `
+                    <img src="${proxyImage(movie.poster)}" class="admin-thumb">
+                    <div class="admin-edit-form">
+                        <div class="admin-field" style="grid-column: span 2;">
+                            <label>TITLE</label>
+                            <input type="text" value="${movie.title}" disabled>
+                        </div>
+                        <div class="admin-field">
+                            <label>WATCH LINK (MP4/TELEGRAM)</label>
+                            <input type="text" class="edit-link" data-index="${index}" value="${movie.watch_link || ''}">
+                        </div>
+                        <div class="admin-field">
+                            <label>ARABIC SUBTITLES (.SRT)</label>
+                            <input type="text" class="edit-sub" data-index="${index}" value="${movie.subtitle_ar || ''}">
+                        </div>
+                    </div>
+                `;
+                this.adminGrid.appendChild(item);
+            });
+        }
+
+        async commitChanges() {
+            const links = document.querySelectorAll('.edit-link');
+            const subs = document.querySelectorAll('.edit-sub');
+            
+            links.forEach(input => {
+                const idx = input.dataset.index;
+                mcuData[idx].watch_link = input.value.trim();
+            });
+            subs.forEach(input => {
+                const idx = input.dataset.index;
+                mcuData[idx].subtitle_ar = input.value.trim();
+            });
+
+            this.commitBtn.disabled = true;
+            this.commitBtn.innerText = "COMMITTING...";
+
+            try {
+                const content = btoa(unescape(encodeURIComponent(JSON.stringify(mcuData, null, 4))));
+                const response = await fetch(`https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${this.filePath}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${this.token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: "Tactical Update: Synchronizing Hub Database",
+                        content: content,
+                        sha: this.fileSha
+                    })
+                });
+
+                if (!response.ok) throw new Error("Commit Protocol Failed.");
+                
+                const result = await response.json();
+                this.fileSha = result.content.sha;
+                alert("Mission Success: Hub database updated. Changes will be live in 60 seconds.");
+                this.commitBtn.innerText = "COMMIT CHANGES";
+                this.commitBtn.disabled = false;
+                
+            } catch (error) {
+                alert(`Deployment Failed: ${error.message}`);
+                this.commitBtn.innerText = "COMMIT CHANGES";
+                this.commitBtn.disabled = false;
+            }
+        }
+    }
+
+    const dashboard = new StarkDashboard();
     loadData();
 });
