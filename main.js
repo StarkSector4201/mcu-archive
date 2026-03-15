@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const watchLink = item.watch_link;
             const finalLink = telegramLink || watchLink || "#";
             
-            const streamLink = [watchLink, telegramLink].find(l => l && (l.includes('.mp4') || l.includes('.mkv') || l.includes('.webm')));
+            const streamLink = [watchLink, telegramLink].find(l => l && (l.includes('.mp4') || l.includes('.mkv') || l.includes('.webm') || l.includes('/stream/')));
             
             if (streamLink) {
                 modalPoster.style.display = 'none';
