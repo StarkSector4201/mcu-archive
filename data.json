@@ -92,9 +92,12 @@
                 "img": "https://image.tmdb.org/t/p/w500/3bOGNsHlrswhyW79uvIHH1V43JI.jpg"
             }
         ],
-        "watch_link": "http://192.168.1.108:8080/stream/1444306664/551",
+        "watch_link": "http://192.168.1.108:8080/stream/1444306664/572",
         "telegram_link": "https://t.me/c/3521021790/3",
-        "subtitle_ar": "http://192.168.1.108:8080/stream/1444306664/561"
+        "subtitle_ar": "http://192.168.1.108:8080/stream/3521021790/13",
+        "watch_link_1080": "http://192.168.1.108:8080/stream/1444306664/551",
+        "watch_link_720": "",
+        "watch_link_480": ""
     },
     {
         "id": 6,
