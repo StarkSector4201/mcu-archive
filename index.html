@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCU Streaming Hub | Watch & Download MCU Movies</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <div id="app">
@@ -57,10 +57,33 @@
                     <div class="modal-header-grid">
                         <div class="modal-poster-container">
                             <img id="modalPoster" src="" alt="Poster">
-                            <div id="videoPlayerContainer" class="video-player-container" style="display: none;">
-                                <video id="mainVideo" controls controlsList="nodownload">
+                            <div id="videoPlayerContainer" class="video-player-container" style="display: none; position: relative;">
+                                <video id="mainVideo" controls controlsList="nodownload nofullscreen" preload="metadata">
                                     Your browser does not support the video tag.
                                 </video>
+                                <div class="player-custom-controls">
+                                    <button id="gearBtn" class="gear-btn" title="Settings">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                                    </button>
+                                    <button id="fsBtn" class="gear-btn" title="Fullscreen">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                                    </button>
+                                </div>
+                                <div id="gearMenu" class="gear-menu" style="display: none;">
+                                    <div class="gear-section">
+                                        <div class="gear-label">QUALITY</div>
+                                        <div id="qualityOptions" class="gear-options"></div>
+                                    </div>
+                                    <div class="gear-divider"></div>
+                                    <div class="gear-section">
+                                        <div class="gear-label">SUBTITLES</div>
+                                        <div id="subtitleOptions" class="gear-options">
+                                            <button class="sub-option active" data-sub="ar">العربية (Arabic)</button>
+                                            <button class="sub-option" data-sub="en">English</button>
+                                            <button class="sub-option" data-sub="off">Off</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-info">
@@ -71,18 +94,10 @@
                                 <span class="meta-tag lang-tag">English (Sub)</span>
                                 <span class="meta-tag ar-tag">Arabic (Sub)</span>
                             </div>
-                            <div class="subtitle-selection">
-                                <span class="sub-label">SUBTITLES:</span>
-                                <div class="sub-options">
-                                    <span class="sub-option active">العربية</span>
-                                    <span class="sub-option">English</span>
-                                    <span class="sub-option">Français</span>
-                                </div>
-                            </div>
                             <p id="modalSynopsis" class="modal-synopsis"></p>
-                            <a id="modalWatchBtn" href="#" target="_blank" class="watch-btn">
-                                <span class="btn-icon">▶</span> WATCH / DOWNLOAD
-                            </a>
+                            <button id="modalPlayBtn" class="watch-btn">
+                                <span class="btn-icon">▶</span> INITIALIZE PLAYBACK
+                            </button>
                         </div>
                     </div>
                     
@@ -121,6 +136,6 @@
             </div>
         </div>
 
-    <script src="main.js"></script>
+    <script src="/static/main.js"></script>
 </body>
 </html>

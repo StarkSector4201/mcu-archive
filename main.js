@@ -4,14 +4,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.hero-actions .filter-btn');
     const phaseButtons = document.querySelectorAll('#phaseFilters .filter-btn');
     
+    // Settings Gear Elements
+    const gearBtn = document.getElementById('gearBtn');
+    const gearMenu = document.getElementById('gearMenu');
+    const qualityOptions = document.getElementById('qualityOptions');
+    
+    // Toggle Gear Menu
+    if (gearBtn) {
+        gearBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            gearMenu.style.display = gearMenu.style.display === 'none' ? 'block' : 'none';
+        });
+    }
+
+    const fsBtn = document.getElementById('fsBtn');
+    if (fsBtn) {
+        fsBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const container = document.getElementById('videoPlayerContainer');
+            if (!document.fullscreenElement) {
+                container.requestFullscreen().catch(console.error);
+            } else {
+                document.exitFullscreen();
+            }
+        });
+    }
+    
     // Modal Elements
     const modal = document.getElementById('movieModal');
     const closeModal = document.querySelector('.close-modal');
     const modalPoster = document.getElementById('modalPoster');
     const modalTitle = document.getElementById('modalTitle');
-    const modalYearPhase = document.getElementById('modalYearPhase');
     const modalSynopsis = document.getElementById('modalSynopsis');
-    const modalWatchBtn = document.getElementById('modalWatchBtn');
+    const modalPlayBtn = document.getElementById('modalPlayBtn');
     const characterGrid = document.getElementById('characterGrid');
 
     let mcuData = [];
@@ -99,11 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         mainImg.onerror = () => {
             modalPoster.classList.remove('loading');
-            modalPoster.src = 'mcu_hero.png'; // Fallback to hero image
+            modalPoster.src = '/static/mcu_hero.png'; // Fallback to hero image
         };
         
         const videoContainer = document.getElementById('videoPlayerContainer');
         const videoPlayer = document.getElementById('mainVideo');
+        const headerGrid = document.querySelector('.modal-header-grid');
+
+        const customControls = document.querySelector('.player-custom-controls');
 
         // Reset Player State
         if (videoPlayer) {
@@ -111,72 +139,143 @@ document.addEventListener('DOMContentLoaded', () => {
             videoPlayer.src = "";
             videoContainer.style.display = 'none';
             modalPoster.style.display = 'block';
+            headerGrid.classList.remove('playing-mode');
+            if (gearMenu) gearMenu.style.display = 'none';
+            if (customControls) customControls.style.display = 'none'; // Hide until playing
         }
 
         // Subtitle Selection Function
-        function updateSubtitles(src) {
+        async function updateSubtitles(src) {
             const tracks = videoPlayer.querySelectorAll('track');
             tracks.forEach(t => t.remove());
 
             if (src) {
-                const track = document.createElement('track');
-                track.kind = "subtitles";
-                track.label = "Arabic";
-                track.srclang = "ar";
-                track.src = src;
-                track.default = true;
-                videoPlayer.appendChild(track);
+                try {
+                    const response = await fetch(src);
+                    let text = await response.text();
+                    
+                    // Convert SRT format `00:00:00,000` to VTT format `00:00:00.000`
+                    // Add line:80% to push subtitles up from the bottom letterbox
+                    if (!text.includes('WEBVTT')) {
+                        text = 'WEBVTT\n\n' + text.replace(/(\d{2}:\d{2}:\d{2}),(\d{3})\s-->\s(\d{2}:\d{2}:\d{2}),(\d{3})/g, '$1.$2 --> $3.$4 line:80%');
+                    }
+                    
+                    const blob = new Blob([text], { type: 'text/vtt' });
+                    const blobUrl = URL.createObjectURL(blob);
+
+                    const track = document.createElement('track');
+                    track.kind = "subtitles";
+                    track.label = "Arabic";
+                    track.srclang = "ar";
+                    track.src = blobUrl;
+                    track.default = true;
+                    videoPlayer.appendChild(track);
+                } catch(e) {
+                    console.error("Tactical Error: Subtitle fetch failed", e);
+                }
             }
         }
 
         const subOptions = document.querySelectorAll('.sub-option');
         subOptions.forEach(opt => {
-            opt.onclick = () => {
+            opt.onclick = (e) => {
+                e.stopPropagation();
                 subOptions.forEach(s => s.classList.remove('active'));
                 opt.classList.add('active');
                 if (videoPlayer && videoPlayer.src) {
-                    const isArabic = opt.innerText.includes('العربية');
-                    updateSubtitles(isArabic ? item.subtitle_ar : null);
+                    const subType = opt.dataset.sub;
+                    if (subType === 'ar') updateSubtitles(item.subtitle_ar);
+                    if (subType === 'en') updateSubtitles(item.subtitle_en);
+                    if (subType === 'off') updateSubtitles(null);
                 }
             };
         });
 
-        modalWatchBtn.onclick = (e) => {
+        modalPlayBtn.onclick = (e) => {
             e.preventDefault();
             const telegramLink = item.telegram_link;
             const watchLink = item.watch_link;
-            const finalLink = telegramLink || watchLink || "#";
             
             const streamLink = [watchLink, telegramLink].find(l => l && (l.includes('.mp4') || l.includes('.mkv') || l.includes('.webm') || l.includes('/stream/')));
             
             if (streamLink) {
+                // UI transition to Enlarge Player
                 modalPoster.style.display = 'none';
+                headerGrid.classList.add('playing-mode');
                 videoContainer.style.display = 'flex';
                 videoPlayer.src = streamLink;
 
                 const activeSub = document.querySelector('.sub-option.active');
-                if (activeSub && activeSub.innerText.includes('العربية')) {
-                    updateSubtitles(item.subtitle_ar);
+                if (activeSub) {
+                    const subType = activeSub.dataset.sub;
+                    if (subType === 'ar') updateSubtitles(item.subtitle_ar);
+                    if (subType === 'en') updateSubtitles(item.subtitle_en);
+                    if (subType === 'off') updateSubtitles(null);
                 }
 
-                videoPlayer.play().catch(err => {
-                    window.open(streamLink, '_blank');
-                });
-                return false;
-            }
+                // Setup Quality Options Gear
+                if (qualityOptions && customControls) {
+                    qualityOptions.innerHTML = '';
+                    customControls.style.display = 'flex'; // Show controls when video starts
+                    
+                    const qualities = [
+                        { label: 'Auto (Original)', link: item.watch_link || streamLink },
+                        { label: '1080p BluRay', link: item.watch_link_1080 },
+                        { label: '720p HD', link: item.watch_link_720 },
+                        { label: '480p SD', link: item.watch_link_480 }
+                    ];
+                    
+                    qualities.forEach(q => {
+                        const btn = document.createElement('button');
+                        btn.innerText = q.label;
+                        btn.className = 'gear-opt-btn';
+                        
+                        if (!q.link) {
+                            btn.style.opacity = '0.5';
+                            btn.style.cursor = 'not-allowed';
+                            btn.title = 'Not Available';
+                        }
+                        
+                        if (q.link && videoPlayer.src === q.link) {
+                            btn.classList.add('active');
+                        }
+                        
+                        btn.onclick = (e) => {
+                            e.stopPropagation();
+                            if (!q.link) return;
+                            
+                            const currentTime = videoPlayer.currentTime;
+                            const isPaused = videoPlayer.paused;
+                            
+                            videoPlayer.src = q.link;
+                            videoPlayer.currentTime = currentTime;
+                            
+                            const activeSub = document.querySelector('.sub-option.active');
+                            if (activeSub) {
+                                const subType = activeSub.dataset.sub;
+                                if (subType === 'ar') updateSubtitles(item.subtitle_ar);
+                                if (subType === 'en') updateSubtitles(item.subtitle_en);
+                                if (subType === 'off') updateSubtitles(null);
+                            }
+                            
+                            if (!isPaused) videoPlayer.play();
+                            gearMenu.style.display = 'none';
+                            
+                            // Reset bolding
+                            Array.from(qualityOptions.children).forEach(c => c.classList.remove('active'));
+                            btn.classList.add('active');
+                        };
+                        qualityOptions.appendChild(btn);
+                    });
+                }
 
-            if (window.Telegram && window.Telegram.WebApp && finalLink !== "#") {
-                window.Telegram.WebApp.openLink(finalLink);
+                videoPlayer.play().catch(console.error);
                 return false;
+            } else {
+                alert("Encrypted Stream Unavailable. Data missing.");
             }
-
-            if (finalLink !== "#") {
-                window.open(finalLink, '_blank');
-            }
-            
             return false;
         };
-        modalWatchBtn.href = "#";
 
         // Render Character Cards
         characterGrid.innerHTML = '';
@@ -188,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 charCard.innerHTML = `
                     <div class="char-img-container">
-                        <img src="${charImgSrc}" alt="${char.name}" class="char-img" onerror="this.src='mcu_hero.png';this.parentElement.classList.add('img-fail');">
+                        <img src="${charImgSrc}" alt="${char.name}" class="char-img" onerror="this.src='/static/mcu_hero.png';this.parentElement.classList.add('img-fail');">
                     </div>
                     <span class="char-name">${char.name}</span>
                     <span class="char-role">${char.role}</span>
@@ -220,7 +319,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.onclick = (event) => {
-        if (event.target == modal) {
+        if (gearMenu && gearMenu.style.display === 'block' && !event.target.closest('.player-custom-controls') && !event.target.closest('#gearMenu')) {
+            gearMenu.style.display = 'none';
+        }
+        if (event.target == modal && !document.fullscreenElement) {
             stopVideo();
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
@@ -325,12 +427,28 @@ document.addEventListener('DOMContentLoaded', () => {
                             <input type="text" value="${movie.title}" disabled>
                         </div>
                         <div class="admin-field">
-                            <label>WATCH LINK (MP4/TELEGRAM)</label>
+                            <label>AUTO / DEFAULT LINK</label>
                             <input type="text" class="edit-link" data-index="${index}" value="${movie.watch_link || ''}">
                         </div>
                         <div class="admin-field">
+                            <label>1080p BLURAY LINK</label>
+                            <input type="text" class="edit-1080" data-index="${index}" value="${movie.watch_link_1080 || ''}">
+                        </div>
+                        <div class="admin-field">
+                            <label>720p HD LINK</label>
+                            <input type="text" class="edit-720" data-index="${index}" value="${movie.watch_link_720 || ''}">
+                        </div>
+                        <div class="admin-field">
+                            <label>480p SD LINK</label>
+                            <input type="text" class="edit-480" data-index="${index}" value="${movie.watch_link_480 || ''}">
+                        </div>
+                        <div class="admin-field" style="grid-column: span 1;">
                             <label>ARABIC SUBTITLES (.SRT)</label>
-                            <input type="text" class="edit-sub" data-index="${index}" value="${movie.subtitle_ar || ''}">
+                            <input type="text" class="edit-sub-ar" data-index="${index}" value="${movie.subtitle_ar || ''}">
+                        </div>
+                        <div class="admin-field" style="grid-column: span 1;">
+                            <label>ENGLISH SUBTITLES (.SRT)</label>
+                            <input type="text" class="edit-sub-en" data-index="${index}" value="${movie.subtitle_en || ''}">
                         </div>
                     </div>
                 `;
@@ -340,15 +458,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async commitChanges() {
             const links = document.querySelectorAll('.edit-link');
-            const subs = document.querySelectorAll('.edit-sub');
+            const links1080 = document.querySelectorAll('.edit-1080');
+            const links720 = document.querySelectorAll('.edit-720');
+            const links480 = document.querySelectorAll('.edit-480');
+            const subsAr = document.querySelectorAll('.edit-sub-ar');
+            const subsEn = document.querySelectorAll('.edit-sub-en');
             
             links.forEach(input => {
                 const idx = input.dataset.index;
                 mcuData[idx].watch_link = input.value.trim();
             });
-            subs.forEach(input => {
+            links1080.forEach(input => {
+                mcuData[input.dataset.index].watch_link_1080 = input.value.trim();
+            });
+            links720.forEach(input => {
+                mcuData[input.dataset.index].watch_link_720 = input.value.trim();
+            });
+            links480.forEach(input => {
+                mcuData[input.dataset.index].watch_link_480 = input.value.trim();
+            });
+            subsAr.forEach(input => {
                 const idx = input.dataset.index;
                 mcuData[idx].subtitle_ar = input.value.trim();
+            });
+            subsEn.forEach(input => {
+                const idx = input.dataset.index;
+                mcuData[idx].subtitle_en = input.value.trim();
             });
 
             this.commitBtn.disabled = true;
