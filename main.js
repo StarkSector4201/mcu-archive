@@ -184,8 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 opt.classList.add('active');
                 if (videoPlayer && videoPlayer.src) {
                     const subType = opt.dataset.sub;
-                    if (subType === 'ar') updateSubtitles(item.subtitle_ar);
-                    if (subType === 'en') updateSubtitles(item.subtitle_en);
+                    if (subType === 'ar') updateSubtitles(item.subtitle_ar, "Arabic", "ar");
+                    if (subType === 'en') updateSubtitles(item.subtitle_en, "English", "en");
                     if (subType === 'off') updateSubtitles(null);
                 }
             };
@@ -208,8 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const activeSub = document.querySelector('.sub-option.active');
                 if (activeSub) {
                     const subType = activeSub.dataset.sub;
-                    if (subType === 'ar') updateSubtitles(item.subtitle_ar);
-                    if (subType === 'en') updateSubtitles(item.subtitle_en);
+                    if (subType === 'ar') updateSubtitles(item.subtitle_ar, "Arabic", "ar");
+                    if (subType === 'en') updateSubtitles(item.subtitle_en, "English", "en");
                     if (subType === 'off') updateSubtitles(null);
                 }
 
@@ -253,8 +253,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             const activeSub = document.querySelector('.sub-option.active');
                             if (activeSub) {
                                 const subType = activeSub.dataset.sub;
-                                if (subType === 'ar') updateSubtitles(item.subtitle_ar);
-                                if (subType === 'en') updateSubtitles(item.subtitle_en);
+                                if (subType === 'ar') updateSubtitles(item.subtitle_ar, "Arabic", "ar");
+                                if (subType === 'en') updateSubtitles(item.subtitle_en, "English", "en");
                                 if (subType === 'off') updateSubtitles(null);
                             }
                             
