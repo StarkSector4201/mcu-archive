@@ -145,13 +145,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Subtitle Selection Function
-        async function updateSubtitles(src) {
+        async function updateSubtitles(src, label = "Arabic", lang = "ar") {
             const tracks = videoPlayer.querySelectorAll('track');
             tracks.forEach(t => t.remove());
 
             if (src) {
                 try {
-                    const response = await fetch(src);
+                    let finalSrc = src;
+                    if (src.includes('t.me/c/')) {
+                        const parts = src.split('/');
+                        const msgId = parts.pop();
+                        const peerId = parts.pop();
+                        finalSrc = `${window.location.origin}/stream/${peerId}/${msgId}`;
+                    }
+                    const response = await fetch(finalSrc);
                     let text = await response.text();
                     
                     // Convert SRT format `00:00:00,000` to VTT format `00:00:00.000`
@@ -165,8 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     const track = document.createElement('track');
                     track.kind = "subtitles";
-                    track.label = "Arabic";
-                    track.srclang = "ar";
+                    track.label = label;
+                    track.srclang = lang;
                     track.src = blobUrl;
                     track.default = true;
                     videoPlayer.appendChild(track);
