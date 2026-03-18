@@ -17,7 +17,11 @@
         ],
         "watch_link": "local_streaming_server/iron_man_1080p.mp4",
         "telegram_link": "https://t.me/c/CHANNEL_ID/MESSAGE_ID",
-        "subtitle_ar": "local_streaming_server/subs/iron_man_ar.srt"
+        "subtitle_ar": "local_streaming_server/subs/iron_man_ar.srt",
+        "watch_link_1080": "",
+        "watch_link_720": "",
+        "watch_link_480": "",
+        "subtitle_en": ""
     },
     {
         "id": 2,
@@ -36,7 +40,11 @@
             }
         ],
         "watch_link": "local_streaming_server/incredible_hulk_1080p.mp4",
-        "subtitle_ar": ""
+        "subtitle_ar": "",
+        "watch_link_1080": "",
+        "watch_link_720": "",
+        "watch_link_480": "",
+        "subtitle_en": ""
     },
     {
         "id": 3,
@@ -55,7 +63,11 @@
             }
         ],
         "watch_link": "local_streaming_server/iron_man_2_1080p.mp4",
-        "subtitle_ar": ""
+        "subtitle_ar": "",
+        "watch_link_1080": "",
+        "watch_link_720": "",
+        "watch_link_480": "",
+        "subtitle_en": ""
     },
     {
         "id": 4,
@@ -74,7 +86,11 @@
             }
         ],
         "watch_link": "local_streaming_server/thor_1080p.mp4",
-        "subtitle_ar": ""
+        "subtitle_ar": "",
+        "watch_link_1080": "",
+        "watch_link_720": "",
+        "watch_link_480": "",
+        "subtitle_en": ""
     },
     {
         "id": 5,
@@ -97,7 +113,8 @@
         "subtitle_ar": "http://192.168.1.108:8080/stream/1444306664/561",
         "watch_link_1080": "http://192.168.1.108:8080/stream/1444306664/551",
         "watch_link_720": "",
-        "watch_link_480": "http://192.168.1.108:8080/stream/1444306664/580"
+        "watch_link_480": "http://192.168.1.108:8080/stream/1444306664/580",
+        "subtitle_en": "https://t.me/c/3521021790/11"
     },
     {
         "id": 6,
@@ -122,7 +139,11 @@
             }
         ],
         "watch_link": "local_streaming_server/the_avengers_1080p.mp4",
-        "subtitle_ar": ""
+        "subtitle_ar": "",
+        "watch_link_1080": "",
+        "watch_link_720": "",
+        "watch_link_480": "",
+        "subtitle_en": ""
     },
     {
         "id": 7,
@@ -141,7 +162,11 @@
             }
         ],
         "watch_link": "local_streaming_server/black_panther_1080p.mp4",
-        "subtitle_ar": ""
+        "subtitle_ar": "",
+        "watch_link_1080": "",
+        "watch_link_720": "",
+        "watch_link_480": "",
+        "subtitle_en": ""
     },
     {
         "id": 8,
@@ -160,7 +185,11 @@
             }
         ],
         "watch_link": "local_streaming_server/avengers_endgame_1080p.mp4",
-        "subtitle_ar": ""
+        "subtitle_ar": "",
+        "watch_link_1080": "",
+        "watch_link_720": "",
+        "watch_link_480": "",
+        "subtitle_en": ""
     },
     {
         "id": 9,
@@ -179,7 +208,11 @@
             }
         ],
         "watch_link": "local_streaming_server/wandavision_s1_720p.mkv",
-        "subtitle_ar": ""
+        "subtitle_ar": "",
+        "watch_link_1080": "",
+        "watch_link_720": "",
+        "watch_link_480": "",
+        "subtitle_en": ""
     },
     {
         "id": 10,
@@ -198,6 +231,10 @@
             }
         ],
         "watch_link": "local_streaming_server/loki_s1_720p.mkv",
-        "subtitle_ar": ""
+        "subtitle_ar": "",
+        "watch_link_1080": "",
+        "watch_link_720": "",
+        "watch_link_480": "",
+        "subtitle_en": ""
     }
 ]
